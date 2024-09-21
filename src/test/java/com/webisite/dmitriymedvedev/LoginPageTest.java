@@ -14,17 +14,19 @@ import org.openqa.selenium.interactions.Actions;
 
 import java.util.Set;
 
-class LoginPageTest {
+class LoginPageTest extends BaseTest {
 
     @Test
-    public void testWithEmailInvalidData() throws InterruptedException {
-        WebDriver driver = new ChromeDriver();
-        String URL = "https://passport.skillbox.ru/login/";
-        driver.get(URL);
-        driver.manage().window().maximize();
+    public void testWithEmailInvalidData()  {
+
+        HomePage homePage = new HomePage(driver);
+        homePage.clickButtonLogin();
+
+        switchToNewTab();
+
+        Waiters.waitFor(5);
 
         LoginPage loginPage = new LoginPage(driver);
-
         loginPage.inputEmail("el");
         loginPage.inputPassword("123456");
         Waiters.waitFor(2);
@@ -36,16 +38,16 @@ class LoginPageTest {
         String expectedErrorMessage = "Неправильная электронная почта";
 
         Assertions.assertEquals(expectedErrorMessage, actualErrorMessage);
-
-        driver.quit();
     }
 
     @Test
     public void testWithWrongCredentials()  {
-        WebDriver driver = new ChromeDriver();
-        String URL = "https://passport.skillbox.ru/login/";
-        driver.get(URL);
-        driver.manage().window().maximize();
+        HomePage homePage = new HomePage(driver);
+        homePage.clickButtonLogin();
+
+        switchToNewTab();
+
+        Waiters.waitFor(5);
 
         LoginPage loginPage = new LoginPage(driver);
 
@@ -61,16 +63,16 @@ class LoginPageTest {
         String expectedErrorMessage = "Похоже, произошла ошибка при отправке. Проверьте корректность отправляемых данных или перезагрузите страницу.";
 
         Assertions.assertEquals(expectedErrorMessage, actualErrorMessage);
-
-        driver.quit();
     }
 
     @Test
     public void testResetPasswordPageOpen() {
-        WebDriver driver = new ChromeDriver();
-        String URL = "https://passport.skillbox.ru/login/";
-        driver.get(URL);
-        driver.manage().window().maximize();
+        HomePage homePage = new HomePage(driver);
+        homePage.clickButtonLogin();
+
+        switchToNewTab();
+
+        Waiters.waitFor(5);
 
         LoginPage loginPage = new LoginPage(driver);
         Waiters.waitFor(6);
@@ -83,16 +85,16 @@ class LoginPageTest {
         String expectedErrorMessage = "Восстановление пароля";
 
         Assertions.assertEquals(expectedErrorMessage, actualErrorMessage);
-
-        driver.quit();
     }
 
     @Test
     public void testVkLoginPageOpen() {
-        WebDriver driver = new ChromeDriver();
-        String URL = "https://passport.skillbox.ru/login/";
-        driver.get(URL);
-        driver.manage().window().maximize();
+        HomePage homePage = new HomePage(driver);
+        homePage.clickButtonLogin();
+
+        switchToNewTab();
+
+        Waiters.waitFor(5);
 
         LoginPage loginPage = new LoginPage(driver);
         Waiters.waitFor(2);
@@ -106,16 +108,16 @@ class LoginPageTest {
         String expectedErrorMessage = "Узнать больше о VK ID";
 
         Assertions.assertEquals(expectedErrorMessage, actualErrorMessage);
-
-        driver.quit();
     }
 
     @Test
     public void testRegistrationPageOpen() {
-        WebDriver driver = new ChromeDriver();
-        String URL = "https://passport.skillbox.ru/login/";
-        driver.get(URL);
-        driver.manage().window().maximize();
+        HomePage homePage = new HomePage(driver);
+        homePage.clickButtonLogin();
+
+        switchToNewTab();
+
+        Waiters.waitFor(5);
 
         LoginPage loginPage = new LoginPage(driver);
         Waiters.waitFor(6);
@@ -128,16 +130,16 @@ class LoginPageTest {
         String expectedMessage = "Вход в профиль";
 
         Assertions.assertEquals(expectedMessage, actualMessage);
-
-        driver.quit();
     }
 
     @Test
     public void testGoogleLoginPageOpen() {
-        WebDriver driver = new ChromeDriver();
-        String URL = "https://passport.skillbox.ru/login/";
-        driver.get(URL);
-        driver.manage().window().maximize();
+        HomePage homePage = new HomePage(driver);
+        homePage.clickButtonLogin();
+
+        switchToNewTab();
+
+        Waiters.waitFor(5);
 
         LoginPage loginPage = new LoginPage(driver);
         Waiters.waitFor(3);
@@ -152,16 +154,16 @@ class LoginPageTest {
         String expectedMessage = "Условия";
 
         Assertions.assertEquals(expectedMessage, actualMessage);
-
-        driver.quit();
     }
 
     @Test
     public void testYandexLoginPageOpen() {
-        WebDriver driver = new ChromeDriver();
-        String URL = "https://passport.skillbox.ru/login/";
-        driver.get(URL);
-        driver.manage().window().maximize();
+        HomePage homePage = new HomePage(driver);
+        homePage.clickButtonLogin();
+
+        switchToNewTab();
+
+        Waiters.waitFor(5);
 
         LoginPage loginPage = new LoginPage(driver);
         Waiters.waitFor(3);
@@ -176,16 +178,16 @@ class LoginPageTest {
         String expectedMessage = "Яндекс";
 
         Assertions.assertEquals(expectedMessage, actualMessage);
-
-        driver.quit();
     }
 
     @Test
     public void testAppleLoginPageOpen() {
-        WebDriver driver = new ChromeDriver();
-        String URL = "https://passport.skillbox.ru/login/";
-        driver.get(URL);
-        driver.manage().window().maximize();
+        HomePage homePage = new HomePage(driver);
+        homePage.clickButtonLogin();
+
+        switchToNewTab();
+
+        Waiters.waitFor(5);
 
         LoginPage loginPage = new LoginPage(driver);
         Waiters.waitFor(3);
@@ -201,7 +203,5 @@ class LoginPageTest {
 
         Assertions.assertEquals(expectedMessage, actualMessage);
 
-        driver.quit();
     }
 }
-
