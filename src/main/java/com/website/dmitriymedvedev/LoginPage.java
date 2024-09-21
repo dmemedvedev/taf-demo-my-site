@@ -28,5 +28,41 @@ public class LoginPage {
         WebElement inputPassword = driver.findElement(inputPasswordBy);
         inputPassword.sendKeys(password);
     }
-}
 
+    public void clickButtonResetPassword() {
+        By buttonResetPasswordBy = By.xpath(LoginPageXPath.BUTTON_PASSWORD_RESET_XPATH);
+        WebElement buttonResetPassword = driver.findElement(buttonResetPasswordBy);
+        buttonResetPassword.click();
+    }
+
+
+    public void clickVkLoginButton() {
+        By buttonVKLoginBy = By.xpath(LoginPageXPath.BUTTON_VK_XPATH);
+        WebElement buttonVkLogin = driver.findElement(buttonVKLoginBy);
+        buttonVkLogin.click();
+    }
+
+    public void clickButtonProfileCreate() {
+        By buttonProfileCreateBy = By.xpath(LoginPageXPath.BUTTON_PROFILE_CREATE_XPATH);
+        WebElement buttonProfileCreate = driver.findElement(buttonProfileCreateBy);
+        buttonProfileCreate.click();
+    }
+
+    public void clickGoogleLoginButton() {
+        By buttonGoogleLoginBy = By.xpath(LoginPageXPath.BUTTON_GOOGLE_XPATH);
+        WebElement buttonGoogleLogin = driver.findElement(buttonGoogleLoginBy);
+        buttonGoogleLogin.click();
+    }
+
+    public void clickYandexLoginButton() {
+        By buttonYandexLoginBy = By.xpath(LoginPageXPath.BUTTON_YANDEX_XPATH);
+        WebElement buttonYandexLogin = driver.findElement(buttonYandexLoginBy);
+        buttonYandexLogin.click();
+    }
+
+    public void clickAppleLoginButton() {
+        By buttonAppleLoginBy = By.xpath(LoginPageXPath.BUTTON_APPLE_XPATH);
+        WebElement buttonAppleLogin = driver.findElement(buttonAppleLoginBy);
+        buttonAppleLogin.click();
+    }
+}
