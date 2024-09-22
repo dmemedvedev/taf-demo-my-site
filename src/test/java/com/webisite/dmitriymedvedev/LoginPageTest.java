@@ -4,6 +4,7 @@ import com.website.dmitriymedvedev.HomePage;
 import com.website.dmitriymedvedev.LoginPage;
 import com.website.dmitriymedvedev.LoginPageXPath;
 import com.website.dmitriymedvedev.Waiters;
+import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -27,7 +28,7 @@ class LoginPageTest extends BaseTest {
         Waiters.waitFor(5);
 
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.inputEmail("el");
+        loginPage.inputEmail("elistrate@@gmail.com");
         loginPage.inputPassword("123456");
         Waiters.waitFor(2);
 
@@ -202,6 +203,22 @@ class LoginPageTest extends BaseTest {
         String expectedMessage = "© Apple Inc., 2024 г. Все права защищены.";
 
         Assertions.assertEquals(expectedMessage, actualMessage);
+    }
 
+    @Test
+    public void testWithEmptyDataFields()  {
+        HomePage homePage = new HomePage(driver);
+        homePage.clickButtonLogin();
+
+        switchToNewTab();
+
+        Waiters.waitFor(5);
+
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.inputEmail("");
+        loginPage.inputPassword("");
+
+        Assertions.assertFalse(loginPage.isEnterButtonEnabled(),"Кнопка не активна при незаполненных полях");
     }
 }

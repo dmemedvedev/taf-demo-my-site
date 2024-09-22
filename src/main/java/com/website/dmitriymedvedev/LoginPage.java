@@ -65,4 +65,9 @@ public class LoginPage {
         WebElement buttonAppleLogin = driver.findElement(buttonAppleLoginBy);
         buttonAppleLogin.click();
     }
+
+    public boolean isEnterButtonEnabled() {
+        WebElement enterButton = driver.findElement(By.xpath(LoginPageXPath.BUTTON_ENTER_XPATH));
+        return enterButton.isEnabled();
+    }
 }
