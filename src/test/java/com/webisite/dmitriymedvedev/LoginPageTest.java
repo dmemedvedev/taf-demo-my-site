@@ -1,10 +1,6 @@
 package com.webisite.dmitriymedvedev;
 
-import com.website.dmitriymedvedev.HomePage;
-import com.website.dmitriymedvedev.LoginPage;
-import com.website.dmitriymedvedev.LoginPageXPath;
-import com.website.dmitriymedvedev.Waiters;
-import org.junit.Assert;
+import com.website.dmitriymedvedev.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -18,13 +14,11 @@ import java.util.Set;
 class LoginPageTest extends BaseTest {
 
     @Test
-    public void testWithEmailInvalidData()  {
-
+    public void testWithEmailInvalidData() {
         HomePage homePage = new HomePage(driver);
         homePage.clickButtonLogin();
 
         switchToNewTab();
-
         Waiters.waitFor(5);
 
         LoginPage loginPage = new LoginPage(driver);
@@ -36,18 +30,17 @@ class LoginPageTest extends BaseTest {
         WebElement errorMessageWebElement = driver.findElement(errorMessageBy);
 
         String actualErrorMessage = errorMessageWebElement.getText();
-        String expectedErrorMessage = "Неправильная электронная почта";
+        String expectedErrorMessage = Messages.EXPECTED_INCORRECT_EMAIL_MESSAGE;
 
         Assertions.assertEquals(expectedErrorMessage, actualErrorMessage);
     }
 
     @Test
-    public void testWithWrongCredentials()  {
+    public void testWithWrongCredentials() {
         HomePage homePage = new HomePage(driver);
         homePage.clickButtonLogin();
 
         switchToNewTab();
-
         Waiters.waitFor(5);
 
         LoginPage loginPage = new LoginPage(driver);
@@ -61,7 +54,7 @@ class LoginPageTest extends BaseTest {
         WebElement errorMessageWebElement = driver.findElement(wrongCredentialsBy);
 
         String actualErrorMessage = errorMessageWebElement.getText();
-        String expectedErrorMessage = "Похоже, произошла ошибка при отправке. Проверьте корректность отправляемых данных или перезагрузите страницу.";
+        String expectedErrorMessage = Messages.EXPECTED_WRONG_CREDENTIALS_MESSAGE;
 
         Assertions.assertEquals(expectedErrorMessage, actualErrorMessage);
     }
@@ -72,7 +65,6 @@ class LoginPageTest extends BaseTest {
         homePage.clickButtonLogin();
 
         switchToNewTab();
-
         Waiters.waitFor(5);
 
         LoginPage loginPage = new LoginPage(driver);
@@ -82,10 +74,10 @@ class LoginPageTest extends BaseTest {
         By resetHeaderBy = By.xpath(LoginPageXPath.HEADER_PASSWORD_RESET_XPATH);
         WebElement resetHeaderWebElement = driver.findElement(resetHeaderBy);
 
-        String actualErrorMessage = resetHeaderWebElement.getText();
-        String expectedErrorMessage = "Восстановление пароля";
+        String actualMessage = resetHeaderWebElement.getText();
+        String expectedMessage = Messages.EXPECTED_RESET_PASSWORD_PAGE_MESSAGE;
 
-        Assertions.assertEquals(expectedErrorMessage, actualErrorMessage);
+        Assertions.assertEquals(expectedMessage, actualMessage);
     }
 
     @Test
@@ -105,10 +97,10 @@ class LoginPageTest extends BaseTest {
         By vkFooterBy = By.xpath(LoginPageXPath.FOOTER_VK_AUTH_XPATH);
         WebElement vkFooterWebElement = driver.findElement(vkFooterBy);
 
-        String actualErrorMessage = vkFooterWebElement.getText();
-        String expectedErrorMessage = "Узнать больше о VK ID";
+        String actualMessage = vkFooterWebElement.getText();
+        String expectedMessage = Messages.EXPECTED_VK_LOGIN_FOOTER_MESSAGE;
 
-        Assertions.assertEquals(expectedErrorMessage, actualErrorMessage);
+        Assertions.assertEquals(expectedMessage, actualMessage);
     }
 
     @Test
@@ -128,7 +120,7 @@ class LoginPageTest extends BaseTest {
         WebElement registrationPageWebElement = driver.findElement(registrationPageBy);
 
         String actualMessage = registrationPageWebElement.getText();
-        String expectedMessage = "Вход в профиль";
+        String expectedMessage = Messages.EXPECTED_CREATE_PROFILE_PAGE_MESSAGE;
 
         Assertions.assertEquals(expectedMessage, actualMessage);
     }
@@ -152,7 +144,7 @@ class LoginPageTest extends BaseTest {
         WebElement googleFooterWebElement = driver.findElement(googleFooterBy);
 
         String actualMessage = googleFooterWebElement.getText();
-        String expectedMessage = "Условия";
+        String expectedMessage = Messages.EXPECTED_GOOGLE_LOGIN_PAGE_MESSAGE;
 
         Assertions.assertEquals(expectedMessage, actualMessage);
     }
@@ -176,7 +168,7 @@ class LoginPageTest extends BaseTest {
         WebElement yandexFooterWebElement = driver.findElement(yandexFooterBy);
 
         String actualMessage = yandexFooterWebElement.getText();
-        String expectedMessage = "Яндекс";
+        String expectedMessage = Messages.EXPECTED_YANDEX_LOGIN_PAGE_MESSAGE;
 
         Assertions.assertEquals(expectedMessage, actualMessage);
     }
@@ -200,13 +192,13 @@ class LoginPageTest extends BaseTest {
         WebElement appleFooterWebElement = driver.findElement(appleFooterBy);
 
         String actualMessage = appleFooterWebElement.getText();
-        String expectedMessage = "© Apple Inc., 2024 г. Все права защищены.";
+        String expectedMessage = Messages.EXPECTED_APPLE_LOGIN_PAGE_MESSAGE;
 
         Assertions.assertEquals(expectedMessage, actualMessage);
     }
 
     @Test
-    public void testWithEmptyDataFields()  {
+    public void testWithEmptyDataFields() {
         HomePage homePage = new HomePage(driver);
         homePage.clickButtonLogin();
 
@@ -219,6 +211,6 @@ class LoginPageTest extends BaseTest {
         loginPage.inputEmail("");
         loginPage.inputPassword("");
 
-        Assertions.assertFalse(loginPage.isEnterButtonEnabled(),"Кнопка не активна при незаполненных полях");
+        Assertions.assertFalse(loginPage.isEnterButtonEnabled(), "Кнопка активна при незаполненных полях");
     }
 }
