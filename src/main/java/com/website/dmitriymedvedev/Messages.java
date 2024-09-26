@@ -10,4 +10,6 @@ public class Messages {
     public static final String EXPECTED_GOOGLE_LOGIN_PAGE_MESSAGE = "Условия";
     public static final String EXPECTED_YANDEX_LOGIN_PAGE_MESSAGE = "Яндекс";
     public static final String EXPECTED_APPLE_LOGIN_PAGE_MESSAGE = "© Apple Inc., 2024 г. Все права защищены.";
+    public static final String EXPECTED_QA_PROFESSION_MESSAGE = "Инженер по автоматизации тестирования";
+    public static final String EXPECTED_DESIGN_PROFESSION_MESSAGE = "Веб-дизайнер";
 }

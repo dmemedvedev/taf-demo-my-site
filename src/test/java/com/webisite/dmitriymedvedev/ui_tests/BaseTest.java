@@ -1,4 +1,4 @@
-package com.webisite.dmitriymedvedev;
+package com.webisite.dmitriymedvedev.ui_tests;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import java.util.Iterator;
 import java.util.Set;
 
 public class BaseTest {

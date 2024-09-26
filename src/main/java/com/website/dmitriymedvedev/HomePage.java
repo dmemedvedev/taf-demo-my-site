@@ -17,4 +17,21 @@ public class HomePage {
         buttonLogin.click();
     }
 
+    public void clickButtonCatalog() {
+        By buttonCatalogBy = By.xpath(HomePageXPath.BUTTON_CATALOG_XPATH);
+        WebElement buttonCatalog = driver.findElement(buttonCatalogBy);
+        buttonCatalog.click();
+    }
+
+    public void inputSkillsSearch(String skills) {
+        By inputSkillsBy = By.xpath(HomePageXPath.INPUT_SKILLS_SEARCH_XPATH);
+        WebElement inputEmail = driver.findElement(inputSkillsBy);
+        inputEmail.sendKeys(skills);
+    }
+
+    public void clickButtonFindInCatalog() {
+        By buttonFindInCatalogBy = By.xpath(HomePageXPath.BUTTON_SEARCH_CATALOG_XPATH);
+        WebElement buttonFindInCatalog = driver.findElement(buttonFindInCatalogBy);
+        buttonFindInCatalog.click();
+    }
 }

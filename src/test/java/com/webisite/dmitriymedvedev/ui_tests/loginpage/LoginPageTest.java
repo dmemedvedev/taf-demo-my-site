@@ -1,15 +1,11 @@
-package com.webisite.dmitriymedvedev;
+package com.webisite.dmitriymedvedev.ui_tests.loginpage;
 
+import com.webisite.dmitriymedvedev.ui_tests.BaseTest;
 import com.website.dmitriymedvedev.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-
-import java.util.Set;
 
 class LoginPageTest extends BaseTest {
 
