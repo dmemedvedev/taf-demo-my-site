@@ -1,5 +1,6 @@
-package com.webisite.dmitriymedvedev.apitests;
+package com.webisite.dmitriymedvedev.apitests.authpage;
 
+import com.website.dmitriymedvedev.LoginRequest;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -17,8 +18,7 @@ import static org.hamcrest.Matchers.hasItems;
         @Test
         public void testVKLogin() {
             when().
-                    post("\n" +
-                            "https://login.vk.com/?act=connect_user_info").
+                    post(LoginRequest.VK_LOGIN_URL).
                     then().
                     log().all().
                     statusCode(200).
