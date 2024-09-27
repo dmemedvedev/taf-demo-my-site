@@ -1,6 +1,7 @@
 package com.webisite.dmitriymedvedev.apitests.authpage;
 
-import com.website.dmitriymedvedev.LoginRequest;
+
+import com.webisite.dmitriymedvedev.apitests.models.LoginRequest;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +23,7 @@ import static org.hamcrest.Matchers.hasItems;
                     then().
                     log().all().
                     statusCode(200).
-                    body("error_info", equalTo("Некарэктны URL"));
+                    body(LoginRequest.getVKLoginErrorInfo()[0], equalTo(LoginRequest.getVKLoginErrorInfo()[1]));
         }
 
         @Test
