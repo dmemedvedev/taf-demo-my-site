@@ -26,12 +26,17 @@ import static org.hamcrest.Matchers.hasItems;
         }
 
         @Test
-        public void testLogin() {
-            when().
+        public void testUnLogin() {
+            Map<String,String> headers = new HashMap<>();
+            headers.put("Accept","application/json, text/plain, */*");
+            given().headers(headers).
+                    when().
                     get("\n" +
                             "https://passport.skillbox.ru/authapi/v1/user/").
                     then().
-                    statusCode(200);
+                    statusCode(401).
+                    body("message",equalTo("Unauthenticated."));
+
         }
 
         @Test
