@@ -110,12 +110,4 @@ public class LoginPage {
         By appleFooterBy = By.xpath(LoginPageXPath.FOOTER_APPLE_AUTH_XPATH);
         return driver.findElement(appleFooterBy);
     }
-
-
-
-
-
-
-
-
 }

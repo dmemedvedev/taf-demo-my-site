@@ -1,10 +1,11 @@
 package com.webisite.dmitriymedvedev.ui_tests;
 
+import com.website.dmitriymedvedev.driver.DriverSingleton;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.Set;
 
@@ -14,13 +15,8 @@ public class BaseTest {
 
     @BeforeEach
     public void setUpDriver() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-search-engine-choice-screen");
-        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
-
+        driver = DriverSingleton.getDriver();
         driver.get("https://skillbox.ru/");
-
         originalWindow = driver.getWindowHandle();
     }
 
@@ -39,7 +35,7 @@ public class BaseTest {
     }
 
     @AfterEach
-    public void afterEach() {
-        driver.quit();
+    public void tearDown() {
+        DriverSingleton.quitDriver();
     }
 }
