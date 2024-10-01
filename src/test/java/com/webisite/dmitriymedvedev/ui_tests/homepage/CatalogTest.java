@@ -1,7 +1,10 @@
 package com.webisite.dmitriymedvedev.ui_tests.homepage;
 
 import com.webisite.dmitriymedvedev.ui_tests.BaseTest;
-import com.website.dmitriymedvedev.*;
+import com.website.dmitriymedvedev.constants.Messages;
+import com.website.dmitriymedvedev.pages.HomePage;
+import com.website.dmitriymedvedev.pages.HomePageXPath;
+import com.website.dmitriymedvedev.utils.Waiters;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;

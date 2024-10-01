@@ -1,4 +1,4 @@
-package com.website.dmitriymedvedev;
+package com.website.dmitriymedvedev.utils;
 
 public class Waiters {
         public static void waitFor(int seconds) {

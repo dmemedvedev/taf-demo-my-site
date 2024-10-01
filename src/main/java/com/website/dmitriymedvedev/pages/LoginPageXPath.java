@@ -1,4 +1,4 @@
-package com.website.dmitriymedvedev;
+package com.website.dmitriymedvedev.pages;
 
 public class LoginPageXPath {
 

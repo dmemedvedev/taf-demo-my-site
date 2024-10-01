@@ -1,4 +1,4 @@
-package com.website.dmitriymedvedev;
+package com.website.dmitriymedvedev.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package com.website.dmitriymedvedev;
+package com.website.dmitriymedvedev.constants;
 
 public class Messages {
 
